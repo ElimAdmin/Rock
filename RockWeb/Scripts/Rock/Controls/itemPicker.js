@@ -6,6 +6,7 @@
     Rock.controls.itemPicker = (function () {
         var ItemPicker = function (options) {
             this.options = options;
+            this.itemPickerScroll = null;
         },
             exports;
 
@@ -37,7 +38,17 @@
                 }
                 $tree.empty();
 
-                $control.find('.scroll-container').tinyscrollbar({ size: 120, sizethumb: 20 });
+                // iScroll
+                this.itemPickerScroll = new IScroll('.scroll-container', {
+                    scrollbars: true,
+                    mouseWheel: true,
+                    interactiveScrollbars: true,
+                    shrinkScrollbars: 'scale',
+                    fadeScrollbars: false,
+                });
+
+
+                //$control.find('.scroll-container').tinyscrollbar({ size: 120, sizethumb: 20 });
                 // Since some hanlers are "live" events, they need to be bound before tree is initialized
                 this.initializeEventHandlers();
 
@@ -130,6 +141,21 @@
             },
             updateScrollbar: function () {
                 // first, update this control's scrollbar, then the modal's
+
+                var tempScroll = this.itemPickerScroll;
+
+                if (this.itemPickerScroll) {
+                    setTimeout(function () {
+
+                        //debugger
+
+                        tempScroll.refresh();
+                    }, 0);
+                }
+
+                
+
+                /*
                 var $container = $('#' + this.options.controlId).find('.scroll-container'),
                     $dialog = $('div.rock-modal > div.modal-body > div.scroll-container'),
                     dialogTop,
@@ -148,7 +174,7 @@
                             $dialog.tinyscrollbar_update('bottom');
                         }
                     }
-                }
+                }*/
 
                 // update the outer modal scrollbar
                 Rock.dialogs.updateModalScrollBar(this.options.controlId);

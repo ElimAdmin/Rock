@@ -160,3 +160,66 @@ span.data-view-filter-label {
 div.toggle-container {   /* ???? JME */
     display: inline-block;
 }
+
+
+/* MP iScroll for Modals */
+.modal-scroll-container {
+    overflow:hidden;
+}
+
+.modal-scroll-panel {
+    min-height: 375px;
+}
+
+.scroller {
+    padding-right: 24px;
+    
+    position: absolute;
+    z-index: 1;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    width: 100%;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-text-size-adjust: none;
+    -moz-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    -o-text-size-adjust: none;
+    text-size-adjust: none;
+}
+
+.iScrollIndicator {
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid #adaeaf;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    width: 100%;
+    transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1);
+    -webkit-transition: 0ms cubic-bezier(0.1, 0.57, 0.1, 1);
+    display: block;
+    height: 8px;
+    transform: translate(0px, 0px) translateZ(0px);
+    background-color: #000000;
+    opacity: .3;
+}
+
+.iScrollVerticalScrollbar,
+.iScrollLoneScrollbar {
+    position: absolute;
+    z-index: 9999;
+    width: 7px;
+    bottom: 2px;
+    top: 2px;
+    right: 1px;
+    overflow: hidden;
+}

@@ -69,6 +69,17 @@
 
                 // Updates the closest (outer) scroll-container scrollbar (if the control is with a scroll-container)
                 updateModalScrollBar: function (controlId) {
+                    // iScroll
+                    var modalScrollType = typeof modalScroll;
+                    if (modalScrollType != 'undefined' && modalScroll)
+                    {
+                        setTimeout(function () {
+                            modalScroll.refresh();
+                        }, 0);
+                    }
+
+
+                    // Tiny Scroll...
                     var $container = $('#' + controlId).closest('.scroll-container');
                     var $dialog = $('div.rock-modal > div.modal-body > div.scroll-container'),
                     dialogTop,

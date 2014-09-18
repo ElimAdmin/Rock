@@ -627,22 +627,27 @@ namespace Rock.Web.UI.Controls
                 }
 
                 // treeview
-                writer.Write(
-                           @"<div id='treeview-scroll-container_{0}' class='scroll-container scroll-container-vertical scroll-container-picker'>
-                                <div class='scrollbar'>
-                                    <div class='track'>
-                                        <div class='thumb'>
-                                            <div class='end'></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class='viewport'>
-                                    <div class='overview'>
-                                        <div id='treeviewItems_{0}' class='treeview treeview-items'></div>        
-                                    </div>
-                                </div>
-                            </div>",
-                           this.ID );
+                writer.AddStyleAttribute( HtmlTextWriterStyle.Height, "150px" );
+                writer.AddAttribute(HtmlTextWriterAttribute.Id, "treeview-scroll-container_" + this.ID);
+                writer.AddAttribute( HtmlTextWriterAttribute.Class, "scroll-container scroll-container-vertical scroll-container-picker" );    
+                writer.RenderBeginTag( HtmlTextWriterTag.Div );
+
+                writer.AddAttribute( HtmlTextWriterAttribute.Class, "viewport" );    
+                writer.RenderBeginTag( HtmlTextWriterTag.Div );
+
+                writer.AddAttribute( HtmlTextWriterAttribute.Class, "overview" );    
+                writer.RenderBeginTag( HtmlTextWriterTag.Div );
+
+                writer.AddAttribute( HtmlTextWriterAttribute.Id, "treeviewItems_" + this.ID );
+                writer.AddAttribute( HtmlTextWriterAttribute.Class, "treeview treeview-items" );    
+                writer.RenderBeginTag( HtmlTextWriterTag.Div );
+                writer.RenderEndTag();
+
+                writer.RenderEndTag();
+                
+                writer.RenderEndTag();
+
+                writer.RenderEndTag();
 
                 // picker actions
                 writer.AddAttribute( "class", "picker-actions" );

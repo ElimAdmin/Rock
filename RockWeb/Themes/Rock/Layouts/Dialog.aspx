@@ -79,17 +79,11 @@
                         <% } %>
                     </div>
 
-                    <div class="modal-body">
-                        <div id="modal-scroll-container" class="scroll-container scroll-container-vertical">
-                            <div class="scrollbar">
-                                <div class="track">
-                                    <div class="thumb">
-                                        <div class="end"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="viewport">
-                                <div class="overview">
+                    <div class="modal-body modal-scroll-container">
+                        <div class="modal-scroll-panel">
+                            <div class="scroller">
+                                <!-- add some margin so that pickers have room for the popups -->
+                                <div style="margin-bottom: 200px;" >
                                     <Rock:Zone Name="Main" runat="server" />
                                 </div>
                             </div>
@@ -106,9 +100,21 @@
     </form>
 
     <script type="text/javascript">
+        var modalScroll;
+
         Sys.Application.add_load(function () {
-            $('#modal-scroll-container').tinyscrollbar({ size: 150, sizethumb: 20 });
+
+            modalScroll = new IScroll('.modal-scroll-panel', {
+                scrollbars: true,
+                mouseWheel: true,
+                interactiveScrollbars: true,
+                shrinkScrollbars: 'scale',
+                fadeScrollbars: false,
+                scrollbars: 'custom'
+            });
+            
         });
+
     </script>
 </body>
 </html>

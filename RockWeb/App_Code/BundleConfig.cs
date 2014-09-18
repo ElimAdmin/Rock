@@ -57,9 +57,10 @@ public class BundleConfig
             "~/Scripts/bootstrap-timepicker.js",
             "~/Scripts/bootstrap-datepicker.js",
             "~/Scripts/bootbox.min.js",
+            "~/Scripts/iscroll.js",
             "~/Scripts/typeahead.min.js",
             "~/Scripts/jquery.fileupload.js",
-            "~/Scripts/jquery.tinyscrollbar.js",
+            "~/Scripts/jquery.tinyscrollbar.js", // TODO: Remove
             "~/Scripts/jcrop.min.js",
             "~/Scripts/Rock/Extensions/*.js" ) );
 
