@@ -81,6 +81,15 @@ namespace Rock.Data
         /// <summary>
         /// Method that will be called on an entity immediately before the item is saved
         /// </summary>
+        /// <param name="dbContext">The database context.</param>
+        /// <param name="state">The state.</param>
         void PreSaveChanges( Rock.Data.DbContext dbContext, System.Data.Entity.EntityState state );
+
+        /// <summary>
+        /// Method that will be called on an entity immediately after the item is saved
+        /// </summary>
+        /// <param name="dbContext">The database context.</param>
+        /// <param name="state">The state.</param>
+        void PostSaveChanges( Rock.Data.DbContext dbContext, System.Data.Entity.EntityState state );
     }
 }

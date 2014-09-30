@@ -1166,6 +1166,23 @@ namespace Rock.Model
         }
 
         /// <summary>
+        /// Posts the save changes.
+        /// </summary>
+        /// <param name="dbContext">The database context.</param>
+        /// <param name="state">The state.</param>
+        public override void PostSaveChanges( DbContext dbContext, System.Data.Entity.EntityState state )
+        {
+            if ( state == System.Data.Entity.EntityState.Added )
+            {
+                if ( !this.Aliases.Any() )
+                {
+                    this.Aliases.Add( new PersonAlias { AliasPersonId = this.Id, AliasPersonGuid = this.Guid } );
+                    dbContext.SaveChanges( true );
+                }
+            }
+        }
+
+        /// <summary>
         /// Returns a <see cref="System.String" /> containing the Person's FullName that represents this instance.
         /// </summary>
         /// <returns>

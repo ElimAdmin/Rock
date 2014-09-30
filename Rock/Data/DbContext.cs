@@ -294,6 +294,13 @@ namespace Rock.Data
 
             foreach ( var item in updatedItems )
             {
+                if ( item.Entity is IModel )
+                {
+                    var model = item.Entity as IModel;
+
+                    model.PostSaveChanges( this, item.State );
+                }
+                
                 if ( item.State == EntityState.Deleted )
                 {
                     TriggerWorkflows( item.Entity, WorkflowTriggerType.PostDelete, personAlias );
